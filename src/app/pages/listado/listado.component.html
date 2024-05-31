@@ -1,0 +1,33 @@
+<div class="card border-success">
+  <div class="card-header">
+    <h4 class="card-title text-center">Listado De Estudiantes</h4>
+
+    <div class="d-grid gap-2">
+      <button mat-flat-button [routerLink]="['/nuevo']" class="btn btn-primary">
+        Crear Nuevo
+      </button>
+    </div>
+  </div>
+
+  @if (isLoading()) {
+  <app-spinner [mensaje]="mensaje" />
+  } @else {
+  <div class="card-body">
+    <h3 class="text-center text-primary">
+      @if (estudiantes().length>0 ) {
+      <strong> Hay un total de {{ estudiantes().length }} estudiantes </strong>
+      }
+    </h3>
+  </div>
+  <div class="row">
+    @for (estudiante of estudiantes(); track estudiante.id) {
+    <div class="col-4">
+      <app-estudiante-card
+        [estudiante]="estudiante"
+        (wasRemove)="wasDelete($event)"
+      />
+    </div>
+    }
+  </div>
+  }
+</div>
