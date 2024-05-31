@@ -1,0 +1,36 @@
+@if (!isLoading && estudiante) {
+<mat-card class="card">
+  <div class="card-header">
+    <mat-card-title>
+      Nombre del Estudiante:
+      {{ estudiante.nombre }}
+      <mat-divider />
+      Documento:
+      {{ estudiante.documento }}
+    </mat-card-title>
+  </div>
+
+  <mat-card-content>
+    <div class="row">
+      <div class="card col">Edad: {{ estudiante.edad }}</div>
+      <div class="card col">Curso: {{ estudiante.curso }}</div>
+    </div>
+    <div class="row">
+      <div class="card col">Género: {{ estudiante.genero }}</div>
+      <div class="card col">Teléfono: {{ estudiante.telefono }}</div>
+      <div class="card col">Correo: {{ estudiante.correo }}</div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-flat-button color="primary" routerLink="['/home']">
+      <mat-icon>arrow_back</mat-icon>
+      Regresar
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+} @else {
+<ng-content>
+  <app-spinner [mensaje]="mensaje" />
+</ng-content>
+}
