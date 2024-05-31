@@ -1,0 +1,54 @@
+<mat-card class="card bg-transparent">
+  <div class="card-header">
+    <mat-card-title>
+      Nombre del Estudiante:
+      {{ estudiante()?.nombre }}
+      <mat-divider />
+      Documento:
+      {{ estudiante()?.documento }}
+    </mat-card-title>
+  </div>
+
+  <mat-card-content>
+    Curso
+    {{ estudiante()?.curso }}
+
+    <div class="row justify-content-center align-items-center g-2">
+      <div class="col">Edad: {{ estudiante()?.edad }}</div>
+      <div class="col">Género: {{ estudiante()?.genero }}</div>
+      <div class="col">Teléfono: {{ estudiante()?.telefono }}</div>
+      <div class="col">Correo: {{ estudiante()?.correo }}</div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end" class="d-flex justify-content-around">
+    <!-- Botones para editar y ver detalles -->
+    <button
+      class="m-2"
+      mat-flat-button
+      color="accent"
+      [routerLink]="['/editar/', estudiante()?.id]"
+    >
+      <mat-icon>edit</mat-icon>
+      Editar
+    </button>
+    <button
+      mat-stroked-button
+      color="primary"
+      class="m-2"
+      [routerLink]="['/detalle/', estudiante()?.id]"
+    >
+      <mat-icon>visibility</mat-icon>
+      Detalles
+    </button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+    <div class="row mx-auto">
+      <button mat-flat-button color="warn" (click)="onDelete()">
+        <mat-icon color="basic">delete</mat-icon>
+        Eliminar
+      </button>
+    </div>
+  </mat-card-footer>
+</mat-card>
