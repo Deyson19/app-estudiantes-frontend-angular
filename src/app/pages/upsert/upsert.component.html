@@ -1,0 +1,105 @@
+@if (isLoading) {
+<app-spinner [mensaje]="mensaje" />
+} @else {
+<div class="card card-border-primary">
+  <div class="card header">
+    <h3 class="card-title text-center text-success">
+      Formulario para {{ titulo }}
+    </h3>
+  </div>
+
+  <div class="row col mx-auto">
+    <button class="btn btn-info" routerLink="/home">Regresar Al Listado</button>
+  </div>
+
+  <div class="card-body">
+    <div class="card-text">
+      <!-- crear el formulario -->
+      <form [formGroup]="formEstudiante" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <div class="row">
+            <div class="col">
+              <mat-form-field>
+                <mat-label>Nombre del Estudiante</mat-label>
+                <input type="text" matInput formControlName="nombre" />
+              </mat-form-field>
+              @if (formEstudiante.get('nombre')?.hasError('required') &&
+              formEstudiante.get('nombre')?.touched) {
+              <mat-error> El campo no es correcto o está vacío </mat-error>
+              }
+            </div>
+            <div class="col">
+              <mat-form-field>
+                <mat-label>Edad del Estudiante</mat-label>
+                <input type="text" matInput formControlName="edad" />
+              </mat-form-field>
+              @if (formEstudiante.get('edad')?.hasError('required') &&
+              formEstudiante.get('edad')?.touched) {
+              <mat-error> El campo no es correcto o está vacío </mat-error>
+              }
+            </div>
+            <div class="col">
+              <mat-form-field>
+                <mat-label>Género del Estudiante</mat-label>
+                <input type="text" matInput formControlName="genero" />
+              </mat-form-field>
+              @if (formEstudiante.get('genero')?.hasError('required') &&
+              formEstudiante.get('genero')?.touched) {
+              <mat-error> El campo no es correcto o está vacío </mat-error>
+              }
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field>
+                <mat-label>Documento del Estudiante</mat-label>
+                <input type="text" matInput formControlName="documento" />
+              </mat-form-field>
+              @if (formEstudiante.get('documento')?.hasError('required') &&
+              formEstudiante.get('documento')?.touched) {
+              <mat-error> El campo no es correcto o está vacío </mat-error>
+              }
+            </div>
+            <div class="col">
+              <mat-form-field>
+                <mat-label>Teléfono del Estudiante</mat-label>
+                <input type="text" matInput formControlName="telefono" />
+              </mat-form-field>
+              @if (formEstudiante.get('telefono')?.hasError('required') &&
+              formEstudiante.get('telefono')?.touched) {
+              <mat-error> El campo no es correcto o está vacío </mat-error>
+              }
+            </div>
+
+            <div class="col">
+              <mat-form-field>
+                <mat-label>Curso del Estudiante</mat-label>
+                <input type="text" matInput formControlName="curso" />
+              </mat-form-field>
+              @if (formEstudiante.get('curso')?.hasError('required') &&
+              formEstudiante.get('curso')?.touched) {
+              <mat-error> El campo no es correcto o está vacío </mat-error>
+              }
+            </div>
+          </div>
+          <div class="row">
+            <mat-form-field>
+              <mat-label>Correo del Estudiante</mat-label>
+              <input type="email" matInput formControlName="correo" />
+            </mat-form-field>
+            @if (formEstudiante.get('correo')?.hasError('required') &&
+            formEstudiante.get('correo')?.touched) {
+            <mat-error> El campo no es correcto o está vacío </mat-error>
+            }
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" mat-raised-button color="basic" class="bg-info">
+            Guardar datos
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+}
