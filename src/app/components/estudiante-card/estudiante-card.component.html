@@ -1,4 +1,4 @@
-<mat-card class="card bg-transparent">
+<mat-card class="card bg-transparent shadow-lg">
   <div class="card-header">
     <mat-card-title>
       Nombre del Estudiante:
@@ -33,8 +33,8 @@
     </button>
     <button
       mat-stroked-button
-      color="primary"
-      class="m-2"
+      color="warn"
+      class="m-2 bg-primary"
       [routerLink]="['/detalle/', estudiante()?.id]"
     >
       <mat-icon>visibility</mat-icon>
