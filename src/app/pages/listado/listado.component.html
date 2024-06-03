@@ -1,4 +1,4 @@
-<div class="card border-success">
+<div class="card border-success shadow-lg container-fluid">
   <div class="card-header">
     <h4 class="card-title text-center">Listado De Estudiantes</h4>
 
@@ -21,7 +21,7 @@
   </div>
   <div class="row">
     @for (estudiante of estudiantes(); track estudiante.id) {
-    <div class="col-4">
+    <div class="col-3">
       <app-estudiante-card
         [estudiante]="estudiante"
         (wasRemove)="wasDelete($event)"
