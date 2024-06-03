@@ -1,4 +1,4 @@
-<mat-card class="card bg-transparent shadow-lg">
+<mat-card class="card bg-transparent shadow-sm m-2">
   <div class="card-header">
     <mat-card-title>
       Nombre del Estudiante:
@@ -13,7 +13,7 @@
     Curso
     {{ estudiante()?.curso }}
 
-    <div class="row justify-content-center align-items-center g-2">
+    <div class="row justify-content-between">
       <div class="col">Edad: {{ estudiante()?.edad }}</div>
       <div class="col">Género: {{ estudiante()?.genero }}</div>
       <div class="col">Teléfono: {{ estudiante()?.telefono }}</div>
@@ -34,7 +34,7 @@
     <button
       mat-stroked-button
       color="warn"
-      class="m-2 bg-primary"
+      class="m-2 bg-white"
       [routerLink]="['/detalle/', estudiante()?.id]"
     >
       <mat-icon>visibility</mat-icon>
