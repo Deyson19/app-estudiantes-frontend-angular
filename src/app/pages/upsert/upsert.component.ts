@@ -15,6 +15,7 @@ import { EstudiantesService } from '../../services/estudiantes.service';
 import { ToastrService } from 'ngx-toastr';
 import { CrearActualizar, Estudiante } from '../../interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
@@ -26,6 +27,7 @@ import { HttpErrorResponse } from '@angular/common/http';
     RouterModule,
     MatButtonModule,
     SpinnerComponent,
+    CommonModule,
   ],
   templateUrl: './upsert.component.html',
   styleUrl: './upsert.component.css',
@@ -140,5 +142,19 @@ export class UpsertComponent implements OnInit {
           }
         );
     }
+  }
+
+  invalidForm(campo: string): boolean {
+    if (
+      this.formEstudiante.get(campo)?.hasError &&
+      this.formEstudiante.get(campo)?.touched
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  messageError(campo: string): string {
+    return `El campo ${campo} no es correcto o está vacío`;
   }
 }

@@ -87,9 +87,8 @@
               <mat-label>Correo del Estudiante</mat-label>
               <input type="email" matInput formControlName="correo" />
             </mat-form-field>
-            @if (formEstudiante.get('correo')?.hasError('required') &&
-            formEstudiante.get('correo')?.touched) {
-            <mat-error> El campo no es correcto o está vacío </mat-error>
+            @if (invalidForm("correo")) {
+            <mat-error> {{ messageError("correo") | uppercase }} </mat-error>
             }
           </div>
         </div>
